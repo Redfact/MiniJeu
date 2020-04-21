@@ -1,2 +1,2 @@
-# MiniJeu-
+# MiniJeu
 MiniJeu programmé en Ruby 
