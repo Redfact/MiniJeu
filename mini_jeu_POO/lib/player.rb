@@ -1,3 +1,6 @@
+require 'colorize'
+require 'colorized_string'
+
 class Player
 	attr_accessor :name ,:life_points
 
@@ -7,11 +10,13 @@ class Player
 	end
 
 	def show_state
-		puts "#{@name} a #{@life_points} point de vie"
+		nm = ColorizedString.new("#{@name}").blue
+		life = ColorizedString.new("#{@life_points}").green
+		puts "#{nm} a #{life} point de vie"
 	end
 
 	def to_s
-		return "Name: #{@name} Life: #{@life_points}"
+		return "#{@name} Life: #{@life_points}"
 	end
 
 	def gets_damage(dmgpoint)
@@ -44,11 +49,14 @@ class HumanPlayer < Player
 	end
 
 	def show_state
-		puts "#{@name} a #{@life_points} points de vie et une arme de niveau #{@weapon_level}"
+		nm = ColorizedString.new("#{@name}").blue
+		life = ColorizedString.new("#{@life_points}").green
+		wp = ColorizedString.new("#{@weapon_level}").green
+		puts "#{nm} a #{life} points de vie et une arme de niveau #{wp}"
 	end
 
 	def to_s
-		return "#{@name} Life: #{@life_points} Weapon level: #{@weapon_level}"
+		return "Life: #{@life_points} Weapon level: #{@weapon_level}"
 	end
 
 	def compute_damage
